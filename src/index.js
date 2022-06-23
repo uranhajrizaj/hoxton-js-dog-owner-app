@@ -65,12 +65,14 @@ function displayDog(dog){
 }
 
 function addDog(){
+    dogSection.textContent='';
 
     let formTitle=document.createElement('h2');
     formTitle.textContent='Add a new dog';
 
     let dogform=document.createElement('form');
      dogSection.append(formTitle, dogform);
+     dogform.className='dogform'
 
     let dogNameLabel=document.createElement('label');
     dogNameLabel.textContent=`Dog's name`;
@@ -98,13 +100,14 @@ function addDog(){
     dogButton.id='submit';
     dogButton.name='submit';
     dogButton.value='Let\'s add a dog!';
-   
-    dogSection.append(dogNameLabel, dogName, dogImageLabel, dogImage, dogBioLabel, dogBio, dogButton);
+ 
+    dogform.append(dogNameLabel, dogName, dogImageLabel, dogImage, dogBioLabel, dogBio, dogButton);
 
 
 }
 function addAnotherDog(){
-    let plusButton=document.querySelector('.dogs-list__button dogs-list__button--add');
+    let plusButton=document.querySelector(".dogs-list__button--add");
    
     plusButton.addEventListener('click', () => addDog())
 }
+addAnotherDog()

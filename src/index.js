@@ -15,7 +15,11 @@ function addDogItem(dog){
     dogListItem.textContent = dog.name;
     dogList.append(dogListItem)
     dogListItem.addEventListener('click', () =>displayDog(dog)) 
+    
 }
+
+
+
 for (let dog of data) {
     addDogItem(dog)
   }
@@ -60,4 +64,47 @@ function displayDog(dog){
     dogCard.append(title, dogDescription);
 }
 
- 
+function addDog(){
+
+    let formTitle=document.createElement('h2');
+    formTitle.textContent='Add a new dog';
+
+    let dogform=document.createElement('form');
+     dogSection.append(formTitle, dogform);
+
+    let dogNameLabel=document.createElement('label');
+    dogNameLabel.textContent=`Dog's name`;
+    let dogName = document.createElement('input');
+    dogName.type='text';
+    dogName.name='name';
+    
+
+   let dogImageLabel=document.createElement('label');
+    dogImageLabel.textContent=`Dog's picture`;
+    let dogImage = document.createElement('input');
+    dogImage.type='url';
+    dogImage.name='image';
+   dogImage.id='image';
+
+    let dogBioLabel=document.createElement('label');
+    dogBioLabel.textContent=`Dog's bio`;
+    let dogBio = document.createElement('textarea');
+    dogBio.name='bio';  
+    dogBio.id='bio';
+    dogBio.rows=5;
+
+    let dogButton=document.createElement('input');
+    dogButton.type='submit';
+    dogButton.id='submit';
+    dogButton.name='submit';
+    dogButton.value='Let\'s add a dog!';
+   
+    dogSection.append(dogNameLabel, dogName, dogImageLabel, dogImage, dogBioLabel, dogBio, dogButton);
+
+
+}
+function addAnotherDog(){
+    let plusButton=document.querySelector('.dogs-list__button dogs-list__button--add');
+   
+    plusButton.addEventListener('click', () => addDog())
+}
